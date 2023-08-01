@@ -4,23 +4,27 @@ import cards.debitCards.DebitCard;
 
 import java.util.List;
 
-public class DebitCardBonusOnePercent extends DebitCard {
-    private Double bonus;
+public class DebitCardBonusInPercent extends DebitCard {
 
-    public DebitCardBonusOnePercent(Double bonus) {
-        this.bonus = bonus;
+    private final double BONUS_SIZE;
+    private double sumBonus;
+
+    public DebitCardBonusInPercent(double bonus) {
+        this.BONUS_SIZE = bonus / 100;
+        this.sumBonus = 0.0;
     }
 
     @Override
     public List<Double> getInfoAboutTotalMany() {
-        return List.of(balance, 0.0);
+        return List.of(balance, 0.0, sumBonus);
     }
 
     @Override
-    public Boolean pay(Double sum) {
+    public Boolean pay(double sum) {
         Boolean payResult = true;
         if (sum <= balance) {
             balance = balance - sum;
+            sumBonus = sumBonus + sum * BONUS_SIZE;
         } else {
             payResult = false;
         }

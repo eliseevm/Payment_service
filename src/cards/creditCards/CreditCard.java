@@ -1,19 +1,21 @@
-package cards;
+package cards.creditCards;
+
+import cards.BankCard;
 
 import java.util.List;
 
 public class CreditCard extends BankCard {
-    private final double CREDIT_LIMIT; // Лимит карты устанавливается при открытии карты
-    private double currentLimit;
+    protected final double CREDIT_LIMIT; // Лимит карты устанавливается при открытии карты
+    protected double currentLimit; // Начальный, текущий лимит равен установленному лимиту
 
-    public CreditCard(Double limit) {
+    public CreditCard(double limit) {
         super(0.0);
         this.CREDIT_LIMIT = limit;
         this.currentLimit = CREDIT_LIMIT;
     }
 
-
-    public void topUp(Double sum) {
+    @Override
+    public void topUp(double sum) {
         double difference = CREDIT_LIMIT - currentLimit;
         if (currentLimit == CREDIT_LIMIT) {
             balance = balance + sum;
@@ -28,17 +30,17 @@ public class CreditCard extends BankCard {
     }
 
 
-@Override
-    public Boolean pay(Double sum) {
+    @Override
+    public Boolean pay(double sum) {
         Boolean payResult = true;
         if (sum < balance) {
             balance = balance - sum;
         } else if (sum == balance) {
             balance = 0.0;
         } else if (sum > balance) {
-            balance = 0.0;
             currentLimit = currentLimit - (sum - balance);
-        } else if ( sum > (currentLimit + balance)) {
+            balance = 0.0;
+        } else if (sum > (currentLimit + balance)) {
             payResult = false;
         }
         return payResult;
@@ -48,12 +50,5 @@ public class CreditCard extends BankCard {
     public List<Double> getInfoAboutTotalMany() {
         return List.of(balance, currentLimit);
     }
-
-    @Override
-    public String toString() {
-        return "CreditCard{" +
-                "CREDIT_LIMIT=" + CREDIT_LIMIT +
-                ", currentLimit=" + currentLimit +
-                '}';
-    }
+    
 }
