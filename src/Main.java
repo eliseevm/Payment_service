@@ -35,62 +35,62 @@ public class Main {
 
             if (number.equals("1")) {
                 printMassage();
-                double sum = scanner.nextDouble();
+                double sum = Double.parseDouble(scanner.next());
                 new DebitCard().topUp(sum);
                 System.out.println(sum + " - Внесено на карту");
             } else if (number.equals("2")) {
                 printMassage();
-                double sum = scanner.nextDouble();
+                double sum = Double.parseDouble(scanner.next());
                 System.out.println("Установите размер бонусов от потрченных сумм в процентах ");
-                int percentBonus = scanner.nextInt();
+                double percentBonus = Double.parseDouble(scanner.next());
                 new DebitCardBonusInPercent(percentBonus).topUp(sum);
                 System.out.println(sum + " - Внесено на карту");
             } else if (number.equals("3")) {
                 printMassage();
-                double sum = scanner.nextDouble();
+                double sum = Double.parseDouble(scanner.next());
                 System.out.println("Установите размер кэшбэка от потрченных сумм в процентах ");
-                int percentCash = scanner.nextInt();
+                double percentCash = Double.parseDouble(scanner.next());
                 new DebitCardCashBack(percentCash).topUp(sum);
                 System.out.println(sum + " - Внесено на карту");
             } else if (number.equals("4")) {
                 printMassage();
-                double sum = scanner.nextDouble();
+                double sum = Double.parseDouble(scanner.next());
                 System.out.println("Установите размер начислений на сумму вносимую на пополнение баланса в процентах ");
-                int percentSM = scanner.nextInt();
+                double percentSM = Double.parseDouble(scanner.next());
                 new DebitCardSaveMoney(percentSM).topUp(sum);
                 System.out.println(sum + " - Внесено на карту");
             } else if (number.equals("5")) {
                 printMassage();
-                double sum = scanner.nextDouble();
+                double sum = Double.parseDouble(scanner.next());
                 printOtherMassage();
-                int creditLimit = scanner.nextInt();
+                double creditLimit = Double.parseDouble(scanner.next());
                 new CreditCard(creditLimit).topUp(sum);
                 System.out.println(sum + " - Внесено на карту");
             } else if (number.equals("6")) {
                 printMassage();
-                double sum = scanner.nextDouble();
+                double sum = Double.parseDouble(scanner.next());
                 printOtherMassage();
-                int creditLimit = scanner.nextInt();
+                double creditLimit = Double.parseDouble(scanner.next());
                 System.out.println("Установите размер бонусов от потрченных сумм в процентах ");
-                int bonusPercent = scanner.nextInt();
+                double bonusPercent = Double.parseDouble(scanner.next());
                 new CreditCardBonusPercent(bonusPercent, creditLimit).topUp(sum);
                 System.out.println(sum + " - Внесено на карту");
             } else if (number.equals("7")) {
                 printMassage();
-                double sum = scanner.nextDouble();
+                double sum = Double.parseDouble(scanner.next());
                 printOtherMassage();
-                int creditLimit = scanner.nextInt();
+                double creditLimit = Double.parseDouble(scanner.next());
                 System.out.println("Установите размер кэшбэка от потрченных сумм в процентах ");
-                int cashPercent = scanner.nextInt();
+                double cashPercent = Double.parseDouble(scanner.next());
                 new CreditCardCashBack(cashPercent, creditLimit).topUp(sum);
                 System.out.println(sum + " - Внесено на карту");
             } else if (number.equals("8")) {
                 printMassage();
-                double sum = scanner.nextDouble();
+                double sum = Double.parseDouble(scanner.next());
                 printOtherMassage();
-                int creditLimit = scanner.nextInt();
+                double creditLimit = Double.parseDouble(scanner.next());
                 System.out.println("Установите процентную ставку на суммы поступившие на баланс собственных средств");
-                double SMPercent = scanner.nextInt();
+                double SMPercent = Double.parseDouble(scanner.next());
                 new CreditCardSaveMoney(SMPercent, creditLimit).topUp(sum);
                 System.out.println(sum + " - Внесено на карту");
             } else if (number.equals("9")) {
