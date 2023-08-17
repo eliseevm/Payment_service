@@ -19,7 +19,7 @@ public class Main {
         Scanner scanner1 = new Scanner(System.in);
         String number = "";
         while (number != "0") {
-            System.out.println("Добро пожаловать в БАНК МЕЧТА" + "\n" + "Выберите карту для клиента");
+            System.out.println("Добро пожаловать в БАНК 'МЕЧТА'" + "\n" + "Выберите карту для клиента");
             System.out.println("1 - Дебетовая карта" + "\n" +
                     "2 - Дебетовая карта с бонусами за покупки" + "\n" +
                     "3 - Дебетовая карта с кешбэком" + "\n" +
