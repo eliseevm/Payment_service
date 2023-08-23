@@ -7,6 +7,8 @@ import java.util.List;
 public class DebitCardSaveMoney extends DebitCard {
 
     private final double PERCENT_SIZE;
+    Object object = new Object();
+
 
     private double sumPercent;
 
